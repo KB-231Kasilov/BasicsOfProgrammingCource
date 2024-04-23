@@ -83,21 +83,6 @@ void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int))
     }
 }
 
-void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int)) {
-    int criteriaArray[m.nRows];
-    for (int i = 0; i < m.nRows; i++)
-        criteriaArray[i] = criteria(m.values[i], m.nCols);
-    for (int i = 1; i < m.nRows; i++) {
-        int t = criteriaArray[i];
-        int j = i;
-        while (j > 0 && criteriaArray[j - 1] > t) {
-            criteriaArray[j] = criteriaArray[j - 1];
-            swapRows(m, j, j - 1);
-            j--;
-        }
-        criteriaArray[j] = t;
-    }
-}
 
 void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int)) {
     int criteriaArray[m.nCols];
@@ -195,6 +180,25 @@ position getMaxValuePos(matrix m) {
                 maxCol = j;
             }
     return (position) {maxRaw, maxCol};
+}
+
+matrix createMatrixFromArray(const int *a, size_t nRows, size_t nCols) {
+    matrix m = getMemMatrix(nRows, nCols);
+    int k = 0;
+    for (int i = 0; i < nRows; i++)
+        for (int j = 0; j < nCols; j++)
+            m.values[i][j] = a[k++];
+    return m;
+}
+
+matrix *createArrayOfMatrixFromArray(const int *values, size_t nMatrices, size_t nRows, size_t nCols) {
+    matrix *ms = getMemArrayOfMatrices(nMatrices, nRows, nCols);
+    int l = 0;
+    for (int k = 0; k < nMatrices; k++)
+        for (int i = 0; i < nRows; i++)
+            for (int j = 0; j < nCols; j++)
+                ms[k].values[i][j] = values[l++];
+    return ms;
 }
 
 

@@ -50,7 +50,9 @@ void swapColumns(matrix m, int j1, int j2);
 void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int));
 //выполняет сортировку вставками строк матрицы m по неубыванию значения функции criteria применяемой для строк
 
-void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int*, int));
+void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int*,
+                                                                    int));
+
 //считает значение функции getSum для каждой строки матрицы.
 
 void selectionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int*, int));
@@ -77,8 +79,11 @@ position getMinValuePos(matrix m);
 position getMaxValuePos(matrix m);
 //возвращает позицию максимального элемента матрицы m.
 
+matrix createMatrixFromArray(const int *a, size_t nRows, size_t nCols);
+//возвращает матрицу размера nRows на nCols, построенную из элементов массива a.
 
-
+matrix *createArrayOfMatrixFromArray(const int *values, size_t nMatrices, size_t nRows, size_t nCols);
+//возвращает указатель на нулевую матрицу массива из nMatrices матриц, размещенных в динамической памяти, построенных из элементов массива a
 
 
 
