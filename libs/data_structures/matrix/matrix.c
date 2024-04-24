@@ -83,7 +83,6 @@ void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int))
     }
 }
 
-
 void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int)) {
     int criteriaArray[m.nCols];
     int copyColumn[m.nRows];
@@ -191,7 +190,8 @@ matrix createMatrixFromArray(const int *a, size_t nRows, size_t nCols) {
     return m;
 }
 
-matrix *createArrayOfMatrixFromArray(const int *values, size_t nMatrices, size_t nRows, size_t nCols) {
+matrix *createArrayOfMatrixFromArray(const int *values, size_t nMatrices,
+                                     size_t nRows, size_t nCols) {
     matrix *ms = getMemArrayOfMatrices(nMatrices, nRows, nCols);
     int l = 0;
     for (int k = 0; k < nMatrices; k++)
@@ -200,6 +200,7 @@ matrix *createArrayOfMatrixFromArray(const int *values, size_t nMatrices, size_t
                 ms[k].values[i][j] = values[l++];
     return ms;
 }
+
 
 
 
