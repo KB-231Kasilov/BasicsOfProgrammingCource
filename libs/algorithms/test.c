@@ -286,6 +286,7 @@ void test_getMinInArea_1_standard_value() {
     assert(result == 5);
     freeMemMatrix(m);
 }
+
 void test_getMinInArea_2_max_value_in_first_row() {
     matrix m = createMatrixFromArray((int[]) {10, 12, 5, 6,
                                               3, 11, 8, 9,
@@ -294,6 +295,7 @@ void test_getMinInArea_2_max_value_in_first_row() {
     assert(result == 12);
     freeMemMatrix(m);
 }
+
 void test_getMinInArea_3_equal_element() {
     matrix m = createMatrixFromArray((int[]) {0, 0,
                                               0, 0}, 2, 2);
@@ -301,8 +303,40 @@ void test_getMinInArea_3_equal_element() {
     assert(result == 0);
     freeMemMatrix(m);
 }
+
 void test_getMinInArea() {
     test_getMinInArea_1_standard_value();
     test_getMinInArea_2_max_value_in_first_row();
     test_getMinInArea_3_equal_element();
+}
+
+void test_sortByDistance_1_different_distance() {
+    matrix m = createMatrixFromArray((int[]) {2, 2, 2,
+                                              3, 3, 3,
+                                              1, 1, 1}, 3, 3);
+    matrix check = createMatrixFromArray((int[]) {1, 1, 1,
+                                                  2, 2, 2,
+                                                  3, 3, 3}, 3, 3);
+    sortByDistances(&m);
+    assert(areTwoMatricesEqual(m, check));
+    freeMemMatrix(m);
+    freeMemMatrix(check);
+}
+
+void test_sortByDistance_2_equal_distance() {
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                              2, 1, 3,
+                                              3, 1, 2}, 3, 3);
+    matrix check = createMatrixFromArray((int[]) {1, 2, 3,
+                                                  2, 1, 3,
+                                                  3, 1, 2}, 3, 3);
+    sortByDistances(&m);
+    assert(areTwoMatricesEqual(m, check));
+    freeMemMatrix(m);
+    freeMemMatrix(check);
+}
+
+void test_sortByDistance() {
+    test_sortByDistance_1_different_distance();
+    test_sortByDistance_2_equal_distance();
 }

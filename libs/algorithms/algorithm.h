@@ -2,6 +2,7 @@
 #define UNTITLED_ALGORITHM_H
 
 #include "../data_structures/matrix/matrix.h"
+#include <math.h>
 
 // меняет местами строки матрицы m, в которых находятся максимальный и минимальный элементы
 void swapMaxMinRows(matrix *m);
@@ -47,6 +48,15 @@ bool valueInArea(position max, int i, int j);
 
 // возвращает минимальный элемента матрицы m, который находится в области максимального элемента
 int getMinInArea(matrix m);
+
+// возвращает расстояние вектора a размера n до начала координат
+float getDistance(int *a, int n);
+
+// выполняет сортировку вставками строк матрицы m по неубыванию значения функции criteria применяемой для строк
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int));
+
+// сортирует строки матрицы m, относительно их расстояния от начала координат
+void sortByDistances(matrix *m);
 
 
 #endif //UNTITLED_ALGORITHM_H
