@@ -92,3 +92,100 @@ void test_sortColsByMinElem() {
     test_sortColsByMinElem_2_min_value_equal();
 }
 
+void test_mulMatrices_1_standard_value() {
+    matrix m1 = createMatrixFromArray((int[]) {1, 2, 3,
+                                               4, 5, 6,
+                                               7, 8, 9}, 3, 3);
+    matrix m2 = createMatrixFromArray((int[]) {1, 2, 3,
+                                               4, 5, 6,
+                                               7, 8, 9}, 3, 3);
+    matrix result = mulMatrices(m1, m2);
+    matrix check = createMatrixFromArray((int[]) {30, 36, 42,
+                                                  66, 81, 96,
+                                                  102, 126, 150}, 3, 3);
+    assert(areTwoMatricesEqual(result, check));
+    freeMemMatrix(m1);
+    freeMemMatrix(m2);
+    freeMemMatrix(result);
+    freeMemMatrix(check);
+}
+void test_mulMatrices_2_mul_to_e_matrix() {
+    matrix m1 = createMatrixFromArray((int[]) {1, 2, 3,
+                                               4, 5, 6,
+                                               7, 8, 9}, 3, 3);
+    matrix m2 = createMatrixFromArray((int[]) {1, 0, 0,
+                                               0, 1, 0,
+                                               0, 0, 1}, 3, 3);
+    matrix result = mulMatrices(m1, m2);
+    matrix check = createMatrixFromArray((int[]) {1, 2, 3,
+                                                  4, 5, 6,
+                                                  7, 8, 9}, 3, 3);
+    assert(areTwoMatricesEqual(result, check));
+    freeMemMatrix(m1);
+    freeMemMatrix(m2);
+    freeMemMatrix(result);
+    freeMemMatrix(check);
+}
+void test_mulMatrices_3_mul_to_null_matrix() {
+    matrix m1 = createMatrixFromArray((int[]) {1, 2, 3,
+                                               4, 5, 6,
+                                               7, 8, 9}, 3, 3);
+    matrix m2 = createMatrixFromArray((int[]) {0, 0, 0,
+                                               0, 0, 0,
+                                               0, 0, 0}, 3, 3);
+    matrix result = mulMatrices(m1, m2);
+    matrix check = createMatrixFromArray((int[]) {0, 0, 0,
+                                                  0, 0, 0,
+                                                  0, 0, 0}, 3, 3);
+    assert(areTwoMatricesEqual(result, check));
+    freeMemMatrix(m1);
+    freeMemMatrix(m2);
+    freeMemMatrix(result);
+    freeMemMatrix(check);
+}
+void test_mulMatrices() {
+    test_mulMatrices_1_standard_value();
+    test_mulMatrices_2_mul_to_e_matrix();
+    test_mulMatrices_3_mul_to_null_matrix();
+}
+void test_getSquareOfMatrixIfSymmetric_1_symmetric_matrix() {
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                              2, 5, 6,
+                                              3, 6, 9}, 3, 3);
+    matrix check = createMatrixFromArray((int[]) {14, 30, 42,
+                                                  30, 65, 90,
+                                                  42, 90, 126}, 3, 3);
+    getSquareOfMatrixIfSymmetric(&m);
+    assert(areTwoMatricesEqual(m, check));
+    freeMemMatrix(m);
+    freeMemMatrix(check);
+}
+void test_getSquareOfMatrixIfSymmetric_2_not_symmetric_matrix() {
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                              4, 5, 6,
+                                              7, 8, 9}, 3, 3);
+    matrix check = createMatrixFromArray((int[]) {1, 2, 3,
+                                                  4, 5, 6,
+                                                  7, 8, 9}, 3, 3);
+    getSquareOfMatrixIfSymmetric(&m);
+    assert(areTwoMatricesEqual(m, check));
+    freeMemMatrix(m);
+    freeMemMatrix(check);
+}
+void test_getSquareOfMatrixIfSymmetric_3_e_matrix() {
+    matrix m = createMatrixFromArray((int[]) {1, 0, 0,
+                                              0, 1, 0,
+                                              0, 0, 1}, 3, 3);
+    matrix check = createMatrixFromArray((int[]) {1, 0, 0,
+                                                  0, 1, 0,
+                                                  0, 0, 1}, 3, 3);
+    getSquareOfMatrixIfSymmetric(&m);
+    assert(areTwoMatricesEqual(m, check));
+    freeMemMatrix(m);
+    freeMemMatrix(check);
+}
+void test_getSquareOfMatrixIfSymmetric() {
+    test_getSquareOfMatrixIfSymmetric_1_symmetric_matrix();
+    test_getSquareOfMatrixIfSymmetric_2_not_symmetric_matrix();
+    test_getSquareOfMatrixIfSymmetric_3_e_matrix();
+}
