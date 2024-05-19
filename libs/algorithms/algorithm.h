@@ -24,5 +24,13 @@ matrix mulMatrices(matrix m1, matrix m2);
 // меняет матрицу m ее квадратом, если матрица является симметричной
 void getSquareOfMatrixIfSymmetric(matrix *m);
 
+// возвращает true, если массив a размера n состоит только из уникальных элементов, иначе false
+bool isUnique(long long *a, int n);
+
+// возвращает сумму элементов массива a размера n
+long long getSum(int *a, int n);
+
+// транспонирует матрицу, если среди сумм элементов строк нет равных
+void transposeIfMatrixHasNotEqualSumOfRows(matrix *m);
 
 #endif //UNTITLED_ALGORITHM_H
