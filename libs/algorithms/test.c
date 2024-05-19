@@ -475,3 +475,30 @@ void test_countZeroRows() {
     test_countZeroRows_1_standard_values();
     test_countZeroRows_2_without_zero_rows();
 }
+
+void test_matrixNorm_1_all_elements_are_positive() {
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                              4, 5, 6,
+                                              7, 8, 9}, 3, 3);
+    assert(matrixNorm(m) == 9);
+    freeMemMatrix(m);
+}
+void test_matrixNorm_2_all_elements_are_negative() {
+    matrix m = createMatrixFromArray((int[]) {-1, -2, -3,
+                                              -4, -5, -6,
+                                              -7, -8, -9}, 3, 3);
+    assert(matrixNorm(m) == 9);
+    freeMemMatrix(m);
+}
+void test_matrixNorm_3_some_elements_are_negative() {
+    matrix m = createMatrixFromArray((int[]) {-1, -2, -3,
+                                              -4, 5, 10,
+                                              -7, -8, 9}, 3, 3);
+    assert(matrixNorm(m) == 10);
+    freeMemMatrix(m);
+}
+void test_matrixNorm() {
+    test_matrixNorm_1_all_elements_are_positive();
+    test_matrixNorm_2_all_elements_are_negative();
+    test_matrixNorm_3_some_elements_are_negative();
+}

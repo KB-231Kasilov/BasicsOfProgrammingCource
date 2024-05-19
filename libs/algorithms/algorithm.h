@@ -95,4 +95,11 @@ int countZeroRows(matrix m);
 // выводит матрицы из массива матриц ms с наибольшим числом нулевых строк
 void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix);
 
+// возвращает максимум абсолютных величин матрицы m (то есть ее норму)
+int matrixNorm(matrix m);
+
+// находит и выводит матрицы с наименьшей нормой
+void printMinNormMatrix(matrix *ms, int nMatrix);
+
+
 #endif //UNTITLED_ALGORITHM_H
