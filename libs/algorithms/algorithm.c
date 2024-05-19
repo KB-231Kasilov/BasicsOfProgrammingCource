@@ -90,6 +90,7 @@ bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
 int max(int a, int b) {
     return a > b ? a : b;
 }
+
 long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
     int r = m.nRows;
     int c = m.nCols;
@@ -105,4 +106,20 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
     for (int i = 0; i < r + c - 1; i++)
         sum += max_values[i];
     return sum;
+}
+
+bool valueInArea(position max, int i, int j) {
+    position new_pos = {i - max.rowIndex, j - max.colIndex};
+    return (new_pos.rowIndex <= new_pos.colIndex) && (new_pos.rowIndex <= -
+            new_pos.colIndex);
+}
+
+int getMinInArea(matrix m) {
+    position max_value = getMaxValuePos(m);
+    int min = INT_MAX;
+    for (int i = 0; i < m.nRows; i++)
+        for (int j = 0; j < m.nCols; j++)
+            if (valueInArea(max_value, i, j) && m.values[i][j] < min)
+                min = m.values[i][j];
+    return min;
 }

@@ -277,3 +277,32 @@ void test_findSumOfMaxesOfPseudoDiagonal() {
     test_findSumOfMaxesOfPseudoDiagonal_1_standard_value();
     test_findSumOfMaxesOfPseudoDiagonal_2_one_element();
 }
+
+void test_getMinInArea_1_standard_value() {
+    matrix m = createMatrixFromArray((int[]) {10, 7, 5, 6,
+                                              3, 11, 8, 9,
+                                              4, 1, 12, 2}, 3, 4);
+    int result = getMinInArea(m);
+    assert(result == 5);
+    freeMemMatrix(m);
+}
+void test_getMinInArea_2_max_value_in_first_row() {
+    matrix m = createMatrixFromArray((int[]) {10, 12, 5, 6,
+                                              3, 11, 8, 9,
+                                              4, 1, 7, 2}, 3, 4);
+    int result = getMinInArea(m);
+    assert(result == 12);
+    freeMemMatrix(m);
+}
+void test_getMinInArea_3_equal_element() {
+    matrix m = createMatrixFromArray((int[]) {0, 0,
+                                              0, 0}, 2, 2);
+    int result = getMinInArea(m);
+    assert(result == 0);
+    freeMemMatrix(m);
+}
+void test_getMinInArea() {
+    test_getMinInArea_1_standard_value();
+    test_getMinInArea_2_max_value_in_first_row();
+    test_getMinInArea_3_equal_element();
+}

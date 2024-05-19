@@ -42,5 +42,11 @@ int max(int a, int b);
 // возвращает сумму максимальных элементов псевдодиагоналей матрицы m, если они положительны, иначе 0
 long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 
+// возвращает true, если элемент по индексу i, j находится в области элемента max
+bool valueInArea(position max, int i, int j);
+
+// возвращает минимальный элемента матрицы m, который находится в области максимального элемента
+int getMinInArea(matrix m);
+
 
 #endif //UNTITLED_ALGORITHM_H
