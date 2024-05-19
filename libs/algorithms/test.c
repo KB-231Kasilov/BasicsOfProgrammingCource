@@ -63,4 +63,32 @@ void test_sortRowsByMaxElem() {
     test_sortRowsByMaxElem_2_max_value_equal();
 }
 
+void test_sortColsByMinElem_1_standard_value() {
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                              4, 5, 6,
+                                              7, 8, 9}, 3, 3);
+    matrix result = createMatrixFromArray((int[]) {1, 2, 3,
+                                                   4, 5, 6,
+                                                   7, 8, 9}, 3, 3);
+    sortColsByMinElem(&m);
+    assert (areTwoMatricesEqual(m, result));
+    freeMemMatrix(m);
+    freeMemMatrix(result);
+}
+void test_sortColsByMinElem_2_min_value_equal() {
+    matrix m = createMatrixFromArray((int[]) {7, 8, 9,
+                                              1, 1, 6,
+                                              8, 7, 1}, 3, 3);
+    matrix result = createMatrixFromArray((int[]) {7, 8, 9,
+                                                   1, 1, 6,
+                                                   8, 7, 1}, 3, 3);
+    sortColsByMinElem(&m);
+    assert (areTwoMatricesEqual(m, result));
+    freeMemMatrix(m);
+    freeMemMatrix(result);
+}
+void test_sortColsByMinElem() {
+    test_sortColsByMinElem_1_standard_value();
+    test_sortColsByMinElem_2_min_value_equal();
+}
 

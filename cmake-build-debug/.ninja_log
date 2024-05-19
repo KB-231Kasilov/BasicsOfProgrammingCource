@@ -25,3 +25,8 @@
 18	124	7378162608680180	libs/algorithms/CMakeFiles/algorithms.dir/test.c.obj	6cd62c5865be6421
 124	203	7378162609489744	libs/algorithms/libalgorithms.a	b70e0e6cdae44ac4
 203	319	7378162610614977	untitled.exe	20a7bfef75d974f9
+3	110	7378174431136472	CMakeFiles/untitled.dir/libs/algorithms/algorithm.c.obj	d6f7e25cd20a6b0
+11	114	7378174431175017	libs/algorithms/CMakeFiles/algorithms.dir/algorithm.c.obj	9d27ab80353b14ea
+18	125	7378174431300689	libs/algorithms/CMakeFiles/algorithms.dir/test.c.obj	6cd62c5865be6421
+125	207	7378174432136908	libs/algorithms/libalgorithms.a	b70e0e6cdae44ac4
+207	306	7378174433087296	untitled.exe	20a7bfef75d974f9
