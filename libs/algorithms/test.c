@@ -229,3 +229,28 @@ void test_transposeIfMatrixHasNotEqualSumOfRows() {
     test_transposeIfMatrixHasNotEqualSumOfRows_1_standard_value();
     test_transposeIfMatrixHasNotEqualSumOfRows_2_not_different_sum();
 }
+
+void test_isMutuallyInverseMatrices_1_inverse_matrices() {
+    matrix m1 = createMatrixFromArray((int[]) {3, -5,
+                                               1, -2}, 2, 2);
+    matrix m2 = createMatrixFromArray((int[]) {2, -5,
+                                               1, -3}, 2, 2);
+    bool result = isMutuallyInverseMatrices(m1, m2);
+    assert(result == 1);
+    freeMemMatrix(m1);
+    freeMemMatrix(m2);
+}
+void test_isMutuallyInverseMatrices_2_not_inverse_matrices() {
+    matrix m1 = createMatrixFromArray((int[]) {1, -5,
+                                               1, -2}, 2, 2);
+    matrix m2 = createMatrixFromArray((int[]) {2, -5,
+                                               1, -3}, 2, 2);
+    bool result = isMutuallyInverseMatrices(m1, m2);
+    assert(result == 0);
+    freeMemMatrix(m1);
+    freeMemMatrix(m2);
+}
+void test_isMutuallyInverseMatrices() {
+    test_isMutuallyInverseMatrices_1_inverse_matrices();
+    test_isMutuallyInverseMatrices_2_not_inverse_matrices();
+}
