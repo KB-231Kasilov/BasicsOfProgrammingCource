@@ -77,5 +77,15 @@ position getLeftMin(matrix m);
 // заменяет предпоследнюю строку матрицы m первым из столбцов, в котором находится минимальный элемент матрицы
 void swapPenultimateRow(matrix *m);
 
+// возвращает true, если массив a размера n отсортирован по неубыванию, иначе false
+bool isNonDescendingSorted(int *a, int n);
+
+// возвращает true, если все строки матрицы отсортированы по неубыванию, иначе false
+bool hasAllNonDescendingRows(matrix m);
+
+// возвращает количество матриц, строки которых упорядочены по неубыванию элементов
+int countNonDescendingRowsMatrices(matrix *ms, int nMatrix);
+
+
 
 #endif //UNTITLED_ALGORITHM_H

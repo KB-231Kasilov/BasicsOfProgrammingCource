@@ -412,6 +412,7 @@ void test_swapPenultimateRow_1_standard_value() {
     freeMemMatrix(m);
     freeMemMatrix(check);
 }
+
 void test_swapPenultimateRow_2_one_row() {
     matrix m = createMatrixFromArray((int[]) {1, 2, 3}, 1, 3);
     matrix check = createMatrixFromArray((int[]) {1, 2, 3}, 1, 3);
@@ -420,7 +421,38 @@ void test_swapPenultimateRow_2_one_row() {
     freeMemMatrix(m);
     freeMemMatrix(check);
 }
+
 void test_swapPenultimateRow() {
     test_swapPenultimateRow_1_standard_value();
     test_swapPenultimateRow_2_one_row();
+}
+
+void test_countNonDescendingRowsMatrices_1_standard_values() {
+    int values[] = {7, 1, 1, 1, 1, 6, 2, 2, 5,
+                    4, 2, 3, 1, 3, 7, 9};
+    matrix *ms = createArrayOfMatrixFromArray(values, 4, 2, 2);
+    assert(countNonDescendingRowsMatrices(ms, 4) == 2);
+    freeMemMatrices(ms, 4);
+}
+
+void test_countNonDescendingRowsMatrices_2_rows_are_ordered_in_non_decreasing_order() {
+    int values[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+                    14, 15, 16, 17, 18};
+    matrix *ms = createArrayOfMatrixFromArray(values, 2, 3, 3);
+    assert(countNonDescendingRowsMatrices(ms, 2) == 2);
+    freeMemMatrices(ms, 2);
+}
+
+void test_countNonDescendingRowsMatrices_3_some_rows_are_not_ordered_in_non_decreasing_order() {
+    int values[] = {5, 4, 3, 2, 1, 0, 9, 8, 7, 10, 11, 12, 15,
+                    14, 13, 18, 17, 16};
+    matrix *ms = createArrayOfMatrixFromArray(values, 2, 3, 3);
+    assert(countNonDescendingRowsMatrices(ms, 2) == 0);
+    freeMemMatrices(ms, 2);
+}
+
+void test_countNonDescendingRowsMatrices() {
+    test_countNonDescendingRowsMatrices_1_standard_values();
+    test_countNonDescendingRowsMatrices_2_rows_are_ordered_in_non_decreasing_order();
+    test_countNonDescendingRowsMatrices_3_some_rows_are_not_ordered_in_non_decreasing_order();
 }
