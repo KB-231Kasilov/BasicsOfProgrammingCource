@@ -376,3 +376,26 @@ void test_countEqClassesByRowsSum() {
     test_countEqClassesByRowsSum_2_all_sum_different();
     test_countEqClassesByRowsSum_3_equal_sum();
 }
+
+void test_getNSpecialElement_1_standard_value() {
+    matrix m = createMatrixFromArray((int[]) {3, 5, 5, 4,
+                                              2, 3, 6, 7,
+                                              12, 2, 1, 2}, 3, 4);
+    int result = getNSpecialElement(m);
+    assert(result == 2);
+    freeMemMatrix(m);
+}
+
+void test_getNSpecialElement_2_not_have_special_element() {
+    matrix m = createMatrixFromArray((int[]) {3, 5, 5, 4,
+                                              2, 3, 6, 2,
+                                              3, 2, 1, 2}, 3, 4);
+    int result = getNSpecialElement(m);
+    assert(result == 0);
+    freeMemMatrix(m);
+}
+
+void test_getNSpecialElement() {
+    test_getNSpecialElement_1_standard_value();
+    test_getNSpecialElement_2_not_have_special_element();
+}
