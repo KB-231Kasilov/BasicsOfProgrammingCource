@@ -58,5 +58,14 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, in
 // сортирует строки матрицы m, относительно их расстояния от начала координат
 void sortByDistances(matrix *m);
 
+// сравнивает 2 числа типа long long
+int cmp_long_long(const void *pa, const void *pb);
+
+// возвращает количество уникальных элементов массива a размера n
+int countNUnique(long long *a, int n);
+
+// возвращает количество уникальных сумм строк матрицы m
+int countEqClassesByRowsSum(matrix m);
+
 
 #endif //UNTITLED_ALGORITHM_H

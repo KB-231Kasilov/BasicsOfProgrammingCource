@@ -340,3 +340,39 @@ void test_sortByDistance() {
     test_sortByDistance_1_different_distance();
     test_sortByDistance_2_equal_distance();
 }
+
+void test_countEqClassesByRowsSum_1_different_sum() {
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                              4, 5, 6,
+                                              7, 8, 9,
+                                              12, 1, 2}, 4, 3);
+    int result = countEqClassesByRowsSum(m);
+    assert(result == 3);
+    freeMemMatrix(m);
+}
+
+void test_countEqClassesByRowsSum_2_all_sum_different() {
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                              4, 5, 6,
+                                              7, 8, 9,
+                                              10, 11, 12}, 4, 3);
+    int result = countEqClassesByRowsSum(m);
+    assert(result == 4);
+    freeMemMatrix(m);
+}
+
+void test_countEqClassesByRowsSum_3_equal_sum() {
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                              1, 3, 2,
+                                              2, 1, 3,
+                                              2, 3, 1}, 4, 3);
+    int result = countEqClassesByRowsSum(m);
+    assert(result == 1);
+    freeMemMatrix(m);
+}
+
+void test_countEqClassesByRowsSum() {
+    test_countEqClassesByRowsSum_1_different_sum();
+    test_countEqClassesByRowsSum_2_all_sum_different();
+    test_countEqClassesByRowsSum_3_equal_sum();
+}
