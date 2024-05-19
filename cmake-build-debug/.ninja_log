@@ -20,3 +20,8 @@
 554	749	7378140299639362	libs/data_structures/libdata_structures.a	1e7d6ee5f2fd756f
 630	789	7378140300059544	libs/algorithms/libalgorithms.a	b70e0e6cdae44ac4
 789	948	7378140301614241	untitled.exe	20a7bfef75d974f9
+11	116	7378162608574573	libs/algorithms/CMakeFiles/algorithms.dir/algorithm.c.obj	9d27ab80353b14ea
+3	119	7378162608614505	CMakeFiles/untitled.dir/libs/algorithms/algorithm.c.obj	d6f7e25cd20a6b0
+18	124	7378162608680180	libs/algorithms/CMakeFiles/algorithms.dir/test.c.obj	6cd62c5865be6421
+124	203	7378162609489744	libs/algorithms/libalgorithms.a	b70e0e6cdae44ac4
+203	319	7378162610614977	untitled.exe	20a7bfef75d974f9
