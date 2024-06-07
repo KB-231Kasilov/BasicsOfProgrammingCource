@@ -7,6 +7,8 @@ add_executable(untitled main.c
         libs/algorithms/algorithm.h
         libs/algorithms/algorithm.c
         libs/algorithms/array/array.c
+        exam.c
+        exam.c
 )
 add_subdirectory(libs)
 target_link_libraries(untitled data_structures)

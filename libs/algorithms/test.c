@@ -502,3 +502,29 @@ void test_matrixNorm() {
     test_matrixNorm_2_all_elements_are_negative();
     test_matrixNorm_3_some_elements_are_negative();
 }
+
+void test() {
+    test_swapMaxMinRows();
+    test_sortRowsByMaxElem();
+    test_sortColsByMinElem();
+    test_mulMatrices();
+    test_getSquareOfMatrixIfSymmetric();
+    test_transposeIfMatrixHasNotEqualSumOfRows();
+    test_isMutuallyInverseMatrices();
+    test_findSumOfMaxesOfPseudoDiagonal();
+    test_getMinInArea();
+    test_sortByDistance();
+    test_countEqClassesByRowsSum();
+    test_getNSpecialElement();
+    test_swapPenultimateRow();
+    // функции с выводом были протестированы вручную
+    test_countNonDescendingRowsMatrices();
+    test_countZeroRows();
+    test_matrixNorm();
+}
+
+int main(){
+    test();
+    return 0;
+}
+

@@ -101,5 +101,4 @@ int matrixNorm(matrix m);
 // находит и выводит матрицы с наименьшей нормой
 void printMinNormMatrix(matrix *ms, int nMatrix);
 
-
 #endif //UNTITLED_ALGORITHM_H
